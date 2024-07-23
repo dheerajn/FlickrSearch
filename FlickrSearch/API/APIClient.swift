@@ -38,7 +38,7 @@ extension APIClient {
             var dataToDecode: String?
             TestDetector.mockedRequest.forEach { (key: String, value: String) in
                 if url.absoluteString.contains(key) {
-                    dataToDecode = value
+                    dataToDecode = value.replacingOccurrences(of: "json&nojsoncallback=1&tags==", with: "")
                 }
             }
             if let dataToDecode {

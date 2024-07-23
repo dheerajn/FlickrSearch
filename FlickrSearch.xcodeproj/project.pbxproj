@@ -32,6 +32,8 @@
 		6A4CA88A2C50435000105139 /* APIClientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A4CA8892C50435000105139 /* APIClientTests.swift */; };
 		6A4CA88D2C50441E00105139 /* MockURLSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A4CA88C2C50441E00105139 /* MockURLSession.swift */; };
 		6A4CA88F2C50448200105139 /* MockAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A4CA88E2C50448200105139 /* MockAPIClient.swift */; };
+		6A4CA8912C5046E600105139 /* PhotosFeed.json in Resources */ = {isa = PBXBuildFile; fileRef = 6A4CA8902C5046E600105139 /* PhotosFeed.json */; };
+		6A4CA8942C50471C00105139 /* XCUIApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A4CA8932C50471C00105139 /* XCUIApplication.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -80,6 +82,8 @@
 		6A4CA8892C50435000105139 /* APIClientTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClientTests.swift; sourceTree = "<group>"; };
 		6A4CA88C2C50441E00105139 /* MockURLSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockURLSession.swift; sourceTree = "<group>"; };
 		6A4CA88E2C50448200105139 /* MockAPIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockAPIClient.swift; sourceTree = "<group>"; };
+		6A4CA8902C5046E600105139 /* PhotosFeed.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = PhotosFeed.json; sourceTree = "<group>"; };
+		6A4CA8932C50471C00105139 /* XCUIApplication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XCUIApplication.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -167,7 +171,9 @@
 		6A4CA8542C500A5F00105139 /* FlickrSearchUITests */ = {
 			isa = PBXGroup;
 			children = (
+				6A4CA8922C50471300105139 /* Extension */,
 				6A4CA8552C500A5F00105139 /* FlickrSearchUITests.swift */,
+				6A4CA8902C5046E600105139 /* PhotosFeed.json */,
 				6A4CA8572C500A5F00105139 /* FlickrSearchUITestsLaunchTests.swift */,
 			);
 			path = FlickrSearchUITests;
@@ -243,6 +249,14 @@
 				6A4CA88E2C50448200105139 /* MockAPIClient.swift */,
 			);
 			path = Mock;
+			sourceTree = "<group>";
+		};
+		6A4CA8922C50471300105139 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				6A4CA8932C50471C00105139 /* XCUIApplication.swift */,
+			);
+			path = Extension;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -365,6 +379,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6A4CA8912C5046E600105139 /* PhotosFeed.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -411,6 +426,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6A4CA8562C500A5F00105139 /* FlickrSearchUITests.swift in Sources */,
+				6A4CA8942C50471C00105139 /* XCUIApplication.swift in Sources */,
 				6A4CA8582C500A5F00105139 /* FlickrSearchUITestsLaunchTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
