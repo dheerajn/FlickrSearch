@@ -17,7 +17,7 @@ final class APIClientTests: XCTestCase {
         let expectedPhotosFeed = FlickrModel(title: "Title", link: "Link", description: "Description", modified: "Modified", generator: "Generator", items: [mockFlicktItem])
         let jsonData = try JSONEncoder().encode(expectedPhotosFeed)
         mockSession.nextData = jsonData
-        mockSession.response = HTTPURLResponse(url: URL(string: "https://themealdb.com/api/json/v1/1/filter.php?c=Dessert")!, statusCode: 200, httpVersion: nil, headerFields: nil)
+        mockSession.response = HTTPURLResponse(url: URL(string: "https://api.flickr.com/services/feeds/photos_public.gne?format=json&nojsoncallback=1&tags=")!, statusCode: 200, httpVersion: nil, headerFields: nil)
         
         let photoFeed = try await apiClient.fetchPhotos(for: "random string")
 

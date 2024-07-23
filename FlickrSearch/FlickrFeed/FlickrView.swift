@@ -26,7 +26,7 @@ struct FlickrView: View {
                         .navigationTitle(title)
                 }
             }
-            .navigationTitle("Desserts")
+            .navigationTitle("Flickr Photos Feed")
             .navigationBarTitleDisplayMode(.inline)
             .searchable(text: $viewModel.searchedText, prompt: Text("Look for anyting"))
             .onSubmit(of: .search) {
