@@ -41,17 +41,15 @@ struct FlickrFeedDetailsView: View {
 #Preview {
     FlickrFeedDetailsView(
         viewModel: FlickrFeedDetailsViewModel(
-            item: FlickrItem(
-                title: "Title",
-                link: "Link",
-                media: Media(m: "https://live.staticflickr.com/65535/53875544387_667b38e24d_m.jpg"),
-                dateTaken: "Date taken",
-                description: "Description",
-                published: "2024-07-23T17:47:28Z",
-                author: "Author",
-                authorID: "AuthorId",
-                tags: "Tags"
-            )
+            item: FlickrItem(title: "Title",
+                             link: "Link",
+                             media: Media(m: "https://live.staticflickr.com/65535/53875544387_667b38e24d_m.jpg"),
+                             dateTaken: "Date taken",
+                             description: "Description",
+                             published: "2024-07-23T17:47:28Z",
+                             author: "Author",
+                             authorID: "AuthorId",
+                             tags: "Tags")
         )
     )
 }

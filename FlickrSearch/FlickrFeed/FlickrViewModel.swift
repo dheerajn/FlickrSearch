@@ -8,11 +8,24 @@
 import SwiftUI
 
 @Observable
-class FlickrViewModel {
-    enum FlickrAPIStatus {
+final class FlickrViewModel {
+    enum FlickrAPIStatus: Equatable {
         case inProgress
         case ready(String)
         case error
+        
+        static func ==(lhs: FlickrAPIStatus, rhs: FlickrAPIStatus) -> Bool {
+            switch (lhs, rhs) {
+            case (.inProgress, .inProgress):
+                return true
+            case let (.ready(lhsString), .ready(rhsString)):
+                return lhsString == rhsString
+            case (.error, .error):
+                return true
+            default:
+                return false
+            }
+        }
     }
 
     private let apiClient: APIClientProtocol

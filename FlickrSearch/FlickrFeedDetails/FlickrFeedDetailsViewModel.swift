@@ -30,6 +30,5 @@ final class FlickrFeedDetailsViewModel {
         let flickrRawData = item.description.extractAttributes
         self.height = flickrRawData.height ?? "No height"
         self.width = flickrRawData.width ?? "No width"
-        print("viewmode init")
     }
 }
