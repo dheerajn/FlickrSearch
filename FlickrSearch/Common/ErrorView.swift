@@ -5,4 +5,19 @@
 //  Created by LZU4481 on 7/23/24.
 //
 
-import Foundation
+import SwiftUI
+
+struct ErrorView: View {
+    private let errorString = "Error fetching data."
+    var body: some View {
+        if #available(iOS 17.0, *) {
+            ContentUnavailableView(errorString, systemImage: "exclamationmark.icloud")
+        } else {
+            Text(errorString)
+        }
+    }
+}
+
+#Preview {
+    ErrorView()
+}
