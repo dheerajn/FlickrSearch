@@ -29,7 +29,7 @@ struct FlickrItem: Codable, Identifiable {
 
     var readableTitle: String {
         if title.isEmptyOrWhitespace {
-            return "No title"
+            return "Photo Description not available"
         }
         return title
     }
@@ -40,6 +40,10 @@ struct FlickrItem: Codable, Identifiable {
 
     var id: String {
         title + link
+    }
+
+    var accessibilityLabel: String {
+        return "Photo of \(readableTitle), taken by \(author)"
     }
 
     enum CodingKeys: String, CodingKey {

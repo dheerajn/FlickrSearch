@@ -9,6 +9,7 @@ import SwiftUI
 
 struct FlickrView: View {
     @State private var viewModel = FlickrViewModel()
+    @ScaledMetric private var imageFrame = 50
     
     var body: some View {
         NavigationStack {
@@ -16,10 +17,10 @@ struct FlickrView: View {
                 switch viewModel.status {
                 case .error:
                     ErrorView()
-
+                    
                 case .inProgress:
                     ProgressView()
-
+                    
                 case .ready(let title):
                     flickrFeed
                         .accessibilityIdentifier("")
@@ -28,17 +29,10 @@ struct FlickrView: View {
             }
             .navigationTitle("Flickr Photos Feed")
             .navigationBarTitleDisplayMode(.inline)
-            .searchable(text: $viewModel.searchedText, prompt: Text("Look for anyting"))
-            .onSubmit(of: .search) {
-                Task {
-                    await viewModel.fetchPhotosFeed()
-                }
-            }
+            .searchable(text: $viewModel.searchedText, prompt: Text("Search for anything"))
             .onChange(of: viewModel.searchedText) { oldValue, newValue in
                 if newValue.isEmpty == false {
-                    Task {
-                        await viewModel.fetchPhotosFeed()
-                    }
+                    fetchPhotosFeed()
                 }
             }
         }
@@ -46,8 +40,10 @@ struct FlickrView: View {
             await viewModel.fetchPhotosFeed()
         }
     }
-    
-    private var flickrFeed: some View {
+}
+
+private extension FlickrView {
+    var flickrFeed: some View {
         List(viewModel.photosFeed) { currentFeed in
             NavigationLink {
                 NavigationLazyView(FlickrFeedDetailsView(viewModel: FlickrFeedDetailsViewModel(item: currentFeed)))
@@ -56,7 +52,7 @@ struct FlickrView: View {
                     AsyncImageloader(url: URL(string: currentFeed.thumbnail)!) { image in
                         image
                             .resizable()
-                            .frame(width: 50, height: 50)
+                            .frame(width: imageFrame, height: imageFrame)
                             .clipShape(Circle())
                     } placeholder: {
                         Image(systemName: "photo.artframe")
@@ -69,6 +65,8 @@ struct FlickrView: View {
                         Text(currentFeed.author)
                             .font(.caption)
                     }
+                    .accessibilityElement(children: .combine)
+                    .accessibilityLabel(Text(currentFeed.accessibilityLabel))
                 }
             }
             .listRowBackground(Color.clear)
@@ -77,6 +75,12 @@ struct FlickrView: View {
         }
         .listStyle(.plain)
         .padding()
+    }
+
+    func fetchPhotosFeed() {
+        Task {
+            await viewModel.fetchPhotosFeed()
+        }
     }
 }
 

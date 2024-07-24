@@ -11,30 +11,32 @@ struct FlickrFeedDetailsView: View {
     let viewModel: FlickrFeedDetailsViewModel
 
     var body: some View {
-        VStack(alignment: .leading) {
-            HStack {
-                Spacer()
-                AsyncImageloader(url: URL(string: viewModel.thumbnail)!) { image in
-                    image
-                        .clipShape(Circle())
-                } placeholder: {
-                    ProgressView()
+        ScrollView {
+            VStack(alignment: .leading) {
+                HStack {
+                    Spacer()
+                    AsyncImageloader(url: URL(string: viewModel.thumbnail)!) { image in
+                        image
+                            .accessibilityLabel(Text(viewModel.accessibilityForImage))
+                    } placeholder: {
+                        ProgressView()
+                    }
+                    Spacer()
                 }
-                Spacer()
+                
+                LabeledContent("Title", value: viewModel.title)
+                LabeledContent("Author", value: viewModel.author)
+                LabeledContent("Height", value: viewModel.height)
+                LabeledContent("Width", value: viewModel.width)
+                LabeledContent {
+                    Text(viewModel.readableDate, format: Date.FormatStyle().year().month().day())
+                } label: {
+                    Text("Published on")
+                }
+                
             }
-
-            LabeledContent("Title", value: viewModel.title)
-            LabeledContent("Author", value: viewModel.author)
-            LabeledContent("Height", value: viewModel.height)
-            LabeledContent("Width", value: viewModel.width)
-            LabeledContent {
-                Text(viewModel.readableDate, format: Date.FormatStyle().year().month().day())
-            } label: {
-                Text("Published on")
-            }
-
+            .padding()
         }
-        .padding()
     }
 }
 

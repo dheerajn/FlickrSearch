@@ -34,6 +34,7 @@
 		6A4CA88F2C50448200105139 /* MockAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A4CA88E2C50448200105139 /* MockAPIClient.swift */; };
 		6A4CA8912C5046E600105139 /* PhotosFeed.json in Resources */ = {isa = PBXBuildFile; fileRef = 6A4CA8902C5046E600105139 /* PhotosFeed.json */; };
 		6A4CA8942C50471C00105139 /* XCUIApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A4CA8932C50471C00105139 /* XCUIApplication.swift */; };
+		6A4CA8962C5058CC00105139 /* OptionalExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A4CA8952C5058CC00105139 /* OptionalExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -84,6 +85,7 @@
 		6A4CA88E2C50448200105139 /* MockAPIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockAPIClient.swift; sourceTree = "<group>"; };
 		6A4CA8902C5046E600105139 /* PhotosFeed.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = PhotosFeed.json; sourceTree = "<group>"; };
 		6A4CA8932C50471C00105139 /* XCUIApplication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XCUIApplication.swift; sourceTree = "<group>"; };
+		6A4CA8952C5058CC00105139 /* OptionalExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionalExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -185,6 +187,7 @@
 				6A4CA8652C500BF500105139 /* EnvironmentValuesExtension.swift */,
 				6A4CA86D2C500C4B00105139 /* URLSessionExtension.swift */,
 				6A4CA87D2C5034F500105139 /* StringExtension.swift */,
+				6A4CA8952C5058CC00105139 /* OptionalExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -395,6 +398,7 @@
 				6A4CA8662C500BF500105139 /* EnvironmentValuesExtension.swift in Sources */,
 				6A4CA86C2C500C3800105139 /* AsyncImageloader.swift in Sources */,
 				6A4CA8842C503C1200105139 /* FlickrViewModel.swift in Sources */,
+				6A4CA8962C5058CC00105139 /* OptionalExtension.swift in Sources */,
 				6A4CA8802C503BC300105139 /* NavigationLazyView.swift in Sources */,
 				6A4CA8712C5018EB00105139 /* FlickrModel.swift in Sources */,
 				6A4CA8742C50190700105139 /* APIClient.swift in Sources */,

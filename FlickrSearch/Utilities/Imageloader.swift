@@ -19,6 +19,7 @@ actor Imageloader {
         case ready(Image)
     }
 
+    // This is just for temp purpose and we will replace with other mechanisms
     private var cache = [URL: CacheEntry]()
     
     init() {

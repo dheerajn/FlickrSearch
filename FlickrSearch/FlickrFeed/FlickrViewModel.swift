@@ -44,7 +44,14 @@ final class FlickrViewModel {
             let feed = try await apiClient.fetchPhotos(for: searchedText)
             await MainActor.run { [weak self] in
                 guard let self else { return }
-                self.photosFeed = feed.items
+                if searchedText.isEmpty {
+                    self.photosFeed = feed.items
+                } else {
+                    // We are looking if the searched string is in the tags that we are received
+                    self.photosFeed = feed.items.filter {
+                        $0.tags.lowercased().contains(self.searchedText.lowercased())
+                    }
+                }
                 self.status = .ready(feed.title)
             }
         } catch {
