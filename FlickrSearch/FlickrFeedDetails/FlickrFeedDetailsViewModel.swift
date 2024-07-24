@@ -2,25 +2,12 @@
 //  FlickrFeedDetailsViewModel.swift
 //  FlickrSearch
 //
-//  Created by LZU4481 on 7/23/24.
+//  Created by Dheeraj Neelam on 7/23/24.
 //
 
 import Foundation
 
-extension Date {
-    static var dateFormatter: DateFormatter {
-        let formatter = DateFormatter()
-        formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
-        return formatter
-    }
-    
-    static var monthAndDayFormatter: DateFormatter {
-        let monthDayFormatter = DateFormatter()
-        monthDayFormatter.dateFormat = "MMM dd"
-        return monthDayFormatter
-    }
-}
-
+/// ViewModel for handling feed details view
 final class FlickrFeedDetailsViewModel {
     let title: String
     let thumbnail: String
@@ -37,7 +24,7 @@ final class FlickrFeedDetailsViewModel {
         self.readableDate = Date.dateFormatter.date(from: item.published) ?? Date()
         self.accessibilityForImage = item.accessibilityLabel
 
-        let flickrRawData = item.description.extractAttributes
+        let flickrRawData = item.description.extractFlickrAttributes
         self.height = flickrRawData.height.orDefault("No height")
         self.width = flickrRawData.width.orDefault("No width")
     }

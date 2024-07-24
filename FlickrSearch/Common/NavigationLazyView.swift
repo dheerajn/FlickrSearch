@@ -2,11 +2,12 @@
 //  NavigationLazyView.swift
 //  FlickrSearch
 //
-//  Created by LZU4481 on 7/23/24.
+//  Created by Dheeraj Neelam on 7/23/24.
 //
 
 import SwiftUI
 
+/// Loads the view on demand rather than initializing on appear
 struct NavigationLazyView<Content: View>: View {
     private let build: () -> Content
 

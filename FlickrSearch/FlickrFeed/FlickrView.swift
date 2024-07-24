@@ -2,7 +2,7 @@
 //  FlickrView.swift
 //  FlickrSearch
 //
-//  Created by LZU4481 on 7/23/24.
+//  Created by Dheeraj Neelam on 7/23/24.
 //
 
 import SwiftUI
@@ -10,7 +10,9 @@ import SwiftUI
 struct FlickrView: View {
     @State private var viewModel = FlickrViewModel()
     @ScaledMetric private var imageFrame = 50
-    
+
+    @Environment(\.theme) private var theme: DDMSTheme
+
     var body: some View {
         NavigationStack {
             VStack {
@@ -42,6 +44,8 @@ struct FlickrView: View {
     }
 }
 
+// MARK: - Helpers
+
 private extension FlickrView {
     var flickrFeed: some View {
         List(viewModel.photosFeed) { currentFeed in
@@ -61,7 +65,8 @@ private extension FlickrView {
                     VStack(alignment: .leading) {
                         Text(currentFeed.readableTitle)
                             .font(.headline)
-                        
+                            .foregroundStyle(theme.customColor.primaryTextColor)
+
                         Text(currentFeed.author)
                             .font(.caption)
                     }
@@ -85,5 +90,7 @@ private extension FlickrView {
 }
 
 #Preview {
-    FlickrView()
+    NavigationStack {
+        FlickrView()
+    }
 }

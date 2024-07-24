@@ -2,12 +2,16 @@
 //  APIClient.swift
 //  FlickrSearch
 //
-//  Created by LZU4481 on 7/23/24.
+//  Created by Dheeraj Neelam on 7/23/24.
 //
 
 import Foundation
 
 protocol APIClientProtocol {
+    
+    /// Fetches photos with the searched query
+    /// - Parameter query: Interested topic
+    /// - Returns: Model with the data
     func fetchPhotos(for query: String) async throws -> FlickrModel
 }
 

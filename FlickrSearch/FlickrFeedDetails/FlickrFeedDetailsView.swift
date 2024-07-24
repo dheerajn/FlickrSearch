@@ -2,7 +2,7 @@
 //  FlickrFeedDetailsView.swift
 //  FlickrSearch
 //
-//  Created by LZU4481 on 7/23/24.
+//  Created by Dheeraj Neelam on 7/23/24.
 //
 
 import SwiftUI
@@ -28,6 +28,7 @@ struct FlickrFeedDetailsView: View {
                 LabeledContent("Author", value: viewModel.author)
                 LabeledContent("Height", value: viewModel.height)
                 LabeledContent("Width", value: viewModel.width)
+
                 LabeledContent {
                     Text(viewModel.readableDate, format: Date.FormatStyle().year().month().day())
                 } label: {

@@ -2,7 +2,7 @@
 //  StringExtensionTests.swift
 //  FlickrSearchTests
 //
-//  Created by LZU4481 on 7/23/24.
+//  Created by Dheeraj Neelam on 7/23/24.
 //
 
 import XCTest
@@ -21,7 +21,7 @@ final class StringExtensionTests: XCTestCase {
         let description = """
 <p><a href="https://www.flickr.com/people/200579796@N04/">endlessgriefpublishing</a> posted a photo:</p> <p><a href="https://www.flickr.com/photos/200579796@N04/53875769622/" title="Bergen, Norway"><img src="https://live.staticflickr.com/65535/53875769622_ecb0cd33c3_m.jpg" width="192" height="240" alt="Bergen, Norway" /></a></p>
 """
-        let extractedValues = description.extractAttributes
+        let extractedValues = description.extractFlickrAttributes
         XCTAssertEqual(extractedValues.height, "240")
         XCTAssertEqual(extractedValues.title, "Bergen, Norway")
         XCTAssertEqual(extractedValues.width, "192")
@@ -31,7 +31,7 @@ final class StringExtensionTests: XCTestCase {
         let description = """
 <p><a href="https://www.flickr.com/people/200579796@N04/">endlessgriefpublishing</a> posted a photo:</p> <p><a href="https://www.flickr.com/photos/200579796@N04/53875769622/" title="Bergen, Norway"><img src="https://live.staticflickr.com/65535/53875769622_ecb0cd33c3_m.jpg"" ="240" alt="Bergen, Norway" /></a></p>
 """
-        let extractedValues = description.extractAttributes
+        let extractedValues = description.extractFlickrAttributes
         XCTAssertNil(extractedValues.height)
         XCTAssertNil(extractedValues.width)
     }

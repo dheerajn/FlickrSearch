@@ -2,14 +2,16 @@
 //  StringExtension.swift
 //  FlickrSearch
 //
-//  Created by LZU4481 on 7/23/24.
+//  Created by Dheeraj Neelam on 7/23/24.
 //
 
 import Foundation
 
 extension String {
     typealias FlickrRawText = (title: String?, width: String?, height: String?)
-    var extractAttributes: FlickrRawText {
+    
+    /// Extracks the raw values from the HTML string
+    var extractFlickrAttributes: FlickrRawText {
         let htmlString = self
         var title: String?
         var width: String?
@@ -37,6 +39,8 @@ extension String {
 }
 
 extension String {
+    
+    /// Check if the string is empty or has only white spaces
     var isEmptyOrWhitespace: Bool {
         if self.isEmpty {
             return true

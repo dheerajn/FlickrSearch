@@ -2,7 +2,7 @@
 //  FlickrFeedDetailsViewModelTests.swift
 //  FlickrSearchTests
 //
-//  Created by LZU4481 on 7/23/24.
+//  Created by Dheeraj Neelam on 7/23/24.
 //
 
 import XCTest
@@ -24,14 +24,14 @@ final class FlickrFeedDetailsViewModelTests: XCTestCase {
         let mockFlicktItem = FlickrItem(title: " ", link: "Link", media: Media(m: "https://live.staticflickr.com/65535/53875544387_667b38e24d_m.jpg"), dateTaken: "Date taken", description: "Description", published: "2024-07-23T17:47:28Z", author: "Author", authorID: "AuthorId", tags: "Tags")
         let viewModel = FlickrFeedDetailsViewModel(item: mockFlicktItem)
         
-        XCTAssertEqual(viewModel.title, "No title")
+        XCTAssertEqual(viewModel.title, "Photo Description not available")
     }
 
     func testTitleWithEmptySpace() {
         let mockFlicktItem = FlickrItem(title: "", link: "Link", media: Media(m: "https://live.staticflickr.com/65535/53875544387_667b38e24d_m.jpg"), dateTaken: "Date taken", description: "Description", published: "2024-07-23T17:47:28Z", author: "Author", authorID: "AuthorId", tags: "Tags")
         let viewModel = FlickrFeedDetailsViewModel(item: mockFlicktItem)
         
-        XCTAssertEqual(viewModel.title, "No title")
+        XCTAssertEqual(viewModel.title, "Photo Description not available")
     }
 
     func testHeightAndWidth() {
